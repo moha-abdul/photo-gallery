@@ -7,16 +7,11 @@
         <!-- Looping through news   -->
         {% for all_photos in photos %}
 
-        <div class="row">
-            <!--Display news images  -->
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{news_item.article_image.url}}" class="img-responsive" alt="Image">
-            </div>
-        </div>
+        
 
         {% empty %}
         <div class="row">
-            <h2 class="text-center">There No Images to display</h2>
+            <h2 class="text-center">There Are No Images To Display</h2>
         </div>
         {% endfor %}
     </div>
