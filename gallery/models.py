@@ -13,3 +13,8 @@ class Photos(models.Model):
 
     def __str__(self):
         return self.name
+    
+    # @classmethod
+    # def all_photos(cls):
+    #     photos = Photos.objects.filter()
+    #     return photos
