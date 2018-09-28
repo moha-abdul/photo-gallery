@@ -9,7 +9,7 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
           {% for category in categories %}
-          <a class="dropdown-item" href="#">{{category.name}}</a>
+          <a class="dropdown-item" href="{% url 'search_by_category' %}">{{category.name}}</a>
           {% endfor %}
 
         </div>
@@ -19,11 +19,8 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Location</a>
         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
         {% for location in locations %}
-          <a class="dropdown-item" href="#">{{location.name}}</a>
+          <a class="dropdown-item" href=#>{{location.name}}</a>
         {% endfor %}
-          <!-- <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <a class="dropdown-item" href="#">Separated link</a> -->
         </div>
       </li>
       
