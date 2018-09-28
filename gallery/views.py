@@ -9,7 +9,8 @@ def all_photos(request):
 
     # photos = Photo.all_photos()
     photos = Photos.objects.all()
-    return render(request, 'all-photos/photos.html', {'photos' : photos})
+    categories = Category.objects.all()
+    return render(request, 'all-photos/photos.html', {'photos' : photos,"categories": categories})
 
 def search_image(request):
     if 'photo' in request.GET and request.GET["photo"]:
