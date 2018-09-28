@@ -37,6 +37,11 @@ class Photos(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def search_image(cls, search_term):
+        searched_image = cls.objects.filter(name__icontains=search_term)
+        return searched_image
     
     # @classmethod
     # def all_photos(cls):

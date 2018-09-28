@@ -10,3 +10,15 @@ def all_photos(request):
     # photos = Photo.all_photos()
     photos = Photos.objects.all()
     return render(request, 'all-photos/photos.html', {'photos' : photos})
+
+def search_image(request):
+    if 'photo' in request.GET and request.GET["photo"]:
+        search_term = request.GET.get("photo")
+        searched_photos = Photos.search_image(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-photos/search.html',{"message":message,"photos": searched_photos})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-photos/search.html',{"message":message})

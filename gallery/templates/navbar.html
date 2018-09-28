@@ -12,9 +12,14 @@
         <a class="nav-link" href="#">Location</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search for image">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <!--search form-->
+    <div>
+      <form class="navbar-form" role="search" action="{% url 'search_image' %}">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search for image" name="photo">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    <!--end form-->
+    
   </div>
 </nav>
