@@ -1,6 +1,6 @@
 from django.http  import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Photos
+from .models import Photos, Category
 
 # def hello(request):
 #     return HttpResponse('Welcome to my photo gallery')
@@ -21,4 +21,13 @@ def search_image(request):
 
     else:
         message = "You haven't searched for any term"
+        return render(request, 'all-photos/search.html',{"message":message})
+
+def search_by_category(request):
+    if 'photo' in request.GET and request.GET["photo"]:
+        categories = Category.objects.all()
+        return render(request, 'all-photos/search.html',{"categories": categories})
+
+    else:
+        message = "That category does not exist"
         return render(request, 'all-photos/search.html',{"message":message})
