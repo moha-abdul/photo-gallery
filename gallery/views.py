@@ -10,7 +10,8 @@ def all_photos(request):
     # photos = Photo.all_photos()
     photos = Photos.objects.all()
     categories = Category.objects.all()
-    return render(request, 'all-photos/photos.html', {'photos' : photos,"categories": categories})
+    locations = Location.objects.all()
+    return render(request, 'all-photos/photos.html', {'photos' : photos,"categories": categories, "locations": locations})
 
 def search_image(request):
     if 'photo' in request.GET and request.GET["photo"]:
@@ -29,5 +30,5 @@ def search_by_category(request):
     return render(request, 'all-photos/categories.html',{"categories": categories})
 
 def search_by_location(request):
-    categories = Location.objects.all()
+    locations = Location.objects.all()
     return render(request, 'all-photos/locations.html',{"locations": locations})
