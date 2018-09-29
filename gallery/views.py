@@ -26,25 +26,31 @@ def search_image(request):
 
 
 
-def search_by_category(request):
+# def search_by_category(request):
    
 
-    if 'photo' in request.GET and request.GET["photo"]:
-        name = request.GET.get("photo")
-        searched_categories = Photos.search_by_category(name)
-        message = f"{search_term}"
+#     if 'photo' in request.GET and request.GET["photo"]:
+#         name = request.GET.get("photo")
+#         searched_categories = Photos.search_by_category(name)
+#         message = f"{search_term}"
 
-        return render(request, 'all-photos/search.html',{"message":message,"photos": searched_categories})
+#         return render(request, 'all-photos/search.html',{"message":message,"photos": searched_categories})
 
-    else:
-        message = "You haven't searched for any term"
-        return render(request, 'all-news/search.html',{"message":message})
+#     else:
+#         message = "You haven't searched for any term"
+#         return render(request, 'all-news/search.html',{"message":message})
 
 def filter_by_location(request, location):
     images = Location.objects.get(name=location)
     photos = Photos.objects.filter(location_id=images.id)
 
     return render(request, 'all-photos/locations.html', {"images" : photos})
+
+def filter_by_category(request, category):
+    images = Category.objects.get(name=category)
+    photos = Photos.objects.filter(category_id=images.id)
+
+    return render(request, 'all-photos/categories.html', {"images" : photos})
    
 # def nav(request):
 #     locations = Location.objects.all()
