@@ -7,7 +7,6 @@ from .models import Photos, Category, Location
 
 def all_photos(request):
 
-    # photos = Photo.all_photos()
     photos = Photos.objects.all()
     categories = Category.objects.all()
     locations = Location.objects.all()
@@ -25,10 +24,26 @@ def search_image(request):
         message = "You haven't searched for any term"
         return render(request, 'all-photos/search.html',{"message":message})
 
-def search_by_category(request):
-    categories = Category.objects.all()
-    return render(request, 'all-photos/categories.html',{"categories": categories})
 
-def search_by_location(request):
-    locations = Location.objects.all()
-    return render(request, 'all-photos/locations.html',{"locations": locations})
+
+def search_by_category(request):
+   
+
+    if 'photo' in request.GET and request.GET["photo"]:
+        name = request.GET.get("photo")
+        searched_categories = Photos.search_by_category(name)
+        message = f"{search_term}"
+
+        return render(request, 'all-photos/search.html',{"message":message,"photos": searched_categories})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-news/search.html',{"message":message})
+
+def filter_by_location(request, location):
+    images = Location.objects.get(name=location)
+    print(images.name)
+    photos = Photos.objects.filter(location=images.id)
+
+    return render(request, 'all-photos/locations.html', {"photos" : photos})
+   

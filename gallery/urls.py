@@ -7,8 +7,9 @@ from gallery.views import all_photos, search_image, search_by_category
 urlpatterns=[
     # url('^$',views.hello,name = 'hello'),
     url(r'^$',all_photos,name='all_photos'),
+    url(r'^locations/(\w+)',views.filter_by_location, name = 'location'),
     url(r'^search/', views.search_image, name='search_image'),
-    url(r'^categories/', views.search_by_category, name='search_by_category')
+    url(r'^categories/', views.search_by_category, name='searching')
     # url(r'^article/(\d+)',views.article,name ='article')
 ]
 if settings.DEBUG:

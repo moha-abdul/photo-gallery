@@ -39,18 +39,18 @@ class Photos(models.Model):
         return self.name
 
     @classmethod
+    def display_single_image(cls, id):
+        photo = cls.objects.get(id=id)
+        return photo
+
+    @classmethod
     def search_image(cls, search_term):
         searched_image = cls.objects.filter(name__icontains=search_term)
         return searched_image
 
     @classmethod
-    def search_by_category(cls,category):
-        images_category = cls.objects.filter(category=category)
+    def search_by_category(cls,name):
+        images_category = cls.objects.filter(category__name__icontains=name)
         return images_category
-    
-    # @classmethod
-    # def all_photos(cls):
-    #     photos = Photos.objects.filter()
-    #     return photos
 
 
