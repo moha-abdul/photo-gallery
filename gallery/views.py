@@ -42,8 +42,10 @@ def search_by_category(request):
 
 def filter_by_location(request, location):
     images = Location.objects.get(name=location)
-    print(images.name)
-    photos = Photos.objects.filter(location=images.id)
+    photos = Photos.objects.filter(location_id=images.id)
 
-    return render(request, 'all-photos/locations.html', {"photos" : photos})
+    return render(request, 'all-photos/locations.html', {"images" : photos})
    
+# def nav(request):
+#     locations = Location.objects.all()
+#     return render('navbar.html',{"locations":locations})

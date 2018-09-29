@@ -5,8 +5,9 @@
 
     <div class="container">
         <!-- Looping through photos   -->
-        {% for all_photos in photos %}
+        {% for all_photos in images %}
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <p>{{all_photos.name}}</p>
             <img src="{{all_photos.photo.url}}" class="img-responsive" alt="Image">
         </div>
         
