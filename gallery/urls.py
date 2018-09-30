@@ -11,7 +11,6 @@ urlpatterns=[
     url(r'^categories/(\w+)',views.filter_by_category, name = 'category'),
     url(r'^search/', views.search_image, name='search_image'),
     # url(r'^categories/', views.search_by_category, name='searching')
-    # url(r'^article/(\d+)',views.article,name ='article')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

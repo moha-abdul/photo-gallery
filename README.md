@@ -8,32 +8,48 @@ and locations of the photo.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ## Prerequisites
-What things you need to install the software and how to install them
 
-## Give examples
+Install python 3.6 run the commands
+
+    - sudo apt-get update
+    - sudo apt-get install python3.6
+
+Install pip
+
+    - sudo apt install python3-pip
+
+Install curl using the commands
+
+    - sudo apt-get install curl
+
 ## Installation
+    
+Clone the repository by running the command
 
-A step by step series of examples that tell you how to get a development env running
+    - git clone https://github.com/moha-abdul/photo-gallery.git
 
-Say what the step will be
+Navigate to your directory and install a virtual environment using the command
 
-Give the example
-And repeat
+    - python3.6 -m venv --without-pip virtual
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+Activate the virtual environment using the commands
 
-Running the tests
-Explain how to run the automated tests for this system
+    - source virtual/bin/activate
 
-Break down into end to end tests
-Explain what these tests test and why
+Install pip within the environment by running the command
 
-Give an example
-And coding style tests
-Explain what these tests test and why
+    - curl https://bootstrap.pypa.io/get-pip.py | python
 
-Give an example
+Install all the requirements in the requirements.txt file by running the command
+
+    - pip install -r "requirements.txt"
+
+To run the project on localhost server, run the command
+
+    - python3.6 mange.py runserver
+
+
+
 Deployment
 Add additional notes about how to deploy this on a live system
 
@@ -42,11 +58,6 @@ Add additional notes about how to deploy this on a live system
 Django framework - A framework used to build web apps
 Heroku - Used in Deployment of the web app
 
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
 
 ### Author(s)
 
@@ -57,6 +68,5 @@ Mohammed Abdullahi
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
 #### Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+
+Inspired by the Moringa staff and my fellow students
