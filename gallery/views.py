@@ -23,9 +23,6 @@ def search_image(request):
         return render(request, 'all-photos/search.html',{"message":message})
 
 
-
-
-
 def filter_by_location(request, location):
     images = Location.objects.get(name=location)
     photos = Photos.objects.filter(location_id=images.id)
