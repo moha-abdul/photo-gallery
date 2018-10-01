@@ -4,16 +4,13 @@
 {{block.super}}
 
     <div class="container">
-    <main class="bug">
-		<h1>It’s a <span>feature</span>, not a </h1>
-		<p class="intro">This demo is </p>
 
 	<!-- <ul class="gallery"> -->
         <!-- Looping through photos   -->
         {% for all_photos in photos %}
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <p>{{ all_photos.name }}</p>
-            <img src="{{all_photos.photo.url}}" class="img-responsive" alt="Image" data-toggle="modal" data-target="#myModal">
+            <img src="{{all_photos.photo.url}}" class="img-responsive" alt="Image" data-toggle="modal" data-target="#{{photo.id}}">
             <div class="container">
                 <!-- Trigger the modal with a button -->
                 <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Zoom</button> -->

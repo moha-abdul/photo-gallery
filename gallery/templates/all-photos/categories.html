@@ -8,7 +8,7 @@
         {% for all_photos in images %}
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <p>{{all_photos.name}}</p>
-            <img src="{{all_photos.photo.url}}" class="img-responsive" alt="Image" data-toggle="modal" data-target="#myModal">
+            <img src="{{all_photos.photo.url}}" class="img-responsive" alt="Image" data-toggle="modal" data-target="#{{photo.id}}">
             <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">
                                     
