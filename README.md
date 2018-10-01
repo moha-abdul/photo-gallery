@@ -59,6 +59,12 @@ Django framework - A framework used to build web apps
 
 Heroku - Used in Deployment of the web app
 
+### Link to deployed site
+
+The link to the deployed site
+
+https://my-photo-gallery.herokuapp.com/
+
 
 ### Author(s)
 
