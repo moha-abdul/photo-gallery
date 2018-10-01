@@ -17,7 +17,7 @@
     {% for photo in photos %}
       <div class="col-sm-6 col-md-3">
           <h1>{{photo.name}}</h1>
-          <img src="{{photo.photo.url}}">
+          <img src="{{photo.photo.url}}" data-toggle="modal" data-target="#myModal">
           <div class="container">
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Zoom Image</button>
@@ -32,11 +32,17 @@
                   <h4 class="modal-title"></h4>
                 </div>
                 <div class="modal-body">
+                  <p>{{photo.name }}</p>
                   <p>{{photo.description }}</p>
-                  <p>aoishedbchxjazk\lksJhdcbjn </p>
                   <h2 class="text-center">{{ photo.name }}</h2>
                   <img src="{{photo.photo.url}}">
                 </div>
+                
+                <div> <input type="form" value="{{photo.photo.url}}" id="myInput">
+
+                  <!-- The button used to copy the text -->
+                  <button onclick="myFunction()">Copy text</button></div>
+               
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -50,5 +56,20 @@
     {% endfor %}
   {% endif %}
   </div>
+  <script>
+    function myFunction() {
+      /* Get the text field */
+      var copyText = document.getElementById("myInput");
+    
+      /* Select the text field */
+      copyText.select();
+    
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+    
+      /* Alert the copied text */
+      alert("Copied the text: " + copyText.value);
+    }
+  </script>
 </div>
 {% endblock %}
