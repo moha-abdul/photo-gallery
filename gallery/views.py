@@ -12,13 +12,13 @@ def all_photos(request):
     locations = Location.objects.all()
     return render(request, 'all-photos/photos.html', {'photos' : photos,"categories": categories, "locations": locations})
 
-def search_image(request):
+def search_photo(request):
     '''
     view function to display one photo based on its name
     '''
     if 'photo' in request.GET and request.GET["photo"]:
         search_term = request.GET.get("photo")
-        searched_photos = Photos.search_image(search_term)
+        searched_photos = Photos.search_photo(search_term)
         message = f"{search_term}"
 
         return render(request, 'all-photos/search.html',{"message":message,"photos": searched_photos})

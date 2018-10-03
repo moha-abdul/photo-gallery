@@ -15,6 +15,12 @@ class Category(models.Model):
         '''
         self.save()
 
+    def delete_category(self):
+        '''
+        method to save category
+        '''
+        self.delete()
+
 class Location(models.Model):
     '''
     defines the Location class
@@ -30,6 +36,18 @@ class Location(models.Model):
         '''
         self.save()
 
+    def delete_location(self):
+        '''
+        deletes an instance of the location
+        '''
+        self.delete()
+
+    @classmethod
+    def update_location(cls,id,update):
+        location_update = cls.objects.filter(id=id).update(name=update)
+        return location_update()
+
+
 
 class Photos(models.Model):
     '''
@@ -41,29 +59,29 @@ class Photos(models.Model):
     category = models.ForeignKey(Category, default=True)
     location = models.ForeignKey(Location, default=True)
 
-    def save_image(self):
+    def save_photo(self):
         '''
-        method to save image
+        method to save photo
         '''
         self.save()
 
-    def delete_image(self):
+    def delete_photo(self):
         '''
-        method to delete image
+        method to delete photo
         '''
         self.delete()
 
-    def update_image(self):
+    def update_photo(self):
         '''
-        method to update image
+        method to update photo
         '''
-        self.update_image()
+        self.update_photo()
 
     def __str__(self):
         return self.name
 
     @classmethod
-    def display_single_image(cls, id):
+    def display_single_photo(cls, id):
         '''
         method to display single image
         '''
@@ -71,16 +89,16 @@ class Photos(models.Model):
         return photo
 
     @classmethod
-    def search_image(cls, search_term):
+    def search_photo(cls, search_term):
         '''
         method to display image that is searched using its name
         '''
-        searched_image = cls.objects.filter(name__icontains=search_term)
-        return searched_image
+        searched_photo = cls.objects.filter(name__icontains=search_term)
+        return searched_photo
 
     @classmethod
     def search_by_category(cls,name):
-        images_category = cls.objects.filter(category__name__icontains=name)
-        return images_category
+        photos_category = cls.objects.filter(category__name__icontains=name)
+        return photos_category
 
 
